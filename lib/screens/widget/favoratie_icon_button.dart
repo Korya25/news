@@ -12,7 +12,6 @@ class FavoraiteIconButton extends StatelessWidget {
       onPressed: () {},
       icon: const Icon(
         FontAwesomeIcons.heart,
-        color: Colors.red,
         size: 27,
       ),
     );
