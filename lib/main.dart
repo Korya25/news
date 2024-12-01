@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:news_app/data/cuibt/theme_cuibt/theme_cuibt.dart';
+import 'package:news_app/data/local/cuibt/theme_cuibt/theme_cuibt.dart';
 import 'package:news_app/screens/screen/article_detail_screen.dart';
 import 'package:news_app/screens/screen/favoraties_screen.dart';
 import 'package:news_app/screens/screen/newsscreen.dart';

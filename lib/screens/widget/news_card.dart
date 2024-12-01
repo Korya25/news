@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/data/Hive/favorite_hive_services.dart';
+import 'package:news_app/data/local/Hive/favorite_hive_services.dart';
 import 'package:news_app/screens/screen/article_detail_screen.dart';
 import 'package:news_app/screens/widget/favoratie_icon_button.dart';
 
