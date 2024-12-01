@@ -6,4 +6,8 @@ class AppTextStyle {
     fontSize: 27,
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle hintTextfield = GoogleFonts.aBeeZee(
+    fontSize: 17,
+  );
 }

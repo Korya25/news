@@ -4,7 +4,7 @@ import 'package:news_app/screens/widget/custom_app_bar.dart';
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
-
+  static const String id = 'NewsScreen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news_app/screens/widget/search_screen.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar(
@@ -35,7 +36,9 @@ class CustomAppBar extends StatelessWidget {
 
         // Search Icon Button
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, TextFeildSearch.id);
+          },
           icon: Icon(
             FontAwesomeIcons.searchengin,
             color: colorIcons,
