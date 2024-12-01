@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news_app/screens/screen/favoraties_screen.dart';
 import 'package:news_app/screens/widget/search_screen.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -18,13 +19,8 @@ class CustomAppBar extends StatelessWidget {
       children: [
         // Theme Icon Button
         IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.dark_mode,
-            color: colorIcons,
-            size: sizeIcon,
-          ),
-        ),
+            onPressed: () {},
+            icon: Icon(Icons.dark_mode, color: colorIcons, size: sizeIcon)),
         const Spacer(flex: 4),
 
         // App Bar Text Icon Button
@@ -36,25 +32,19 @@ class CustomAppBar extends StatelessWidget {
 
         // Search Icon Button
         IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, TextFeildSearch.id);
-          },
-          icon: Icon(
-            FontAwesomeIcons.searchengin,
-            color: colorIcons,
-            size: sizeIcon,
-          ),
-        ),
+            onPressed: () {
+              Navigator.pushNamed(context, TextFeildSearch.id);
+            },
+            icon: Icon(FontAwesomeIcons.searchengin,
+                color: colorIcons, size: sizeIcon)),
 
         // Favoratie Icon Button
         IconButton(
-          onPressed: () {},
-          icon: Icon(
-            FontAwesomeIcons.heart,
-            color: colorIcons,
-            size: sizeIcon,
-          ),
-        ),
+            onPressed: () {
+              Navigator.pushNamed(context, FavoratieScreen.id);
+            },
+            icon: Icon(FontAwesomeIcons.heart,
+                color: colorIcons, size: sizeIcon)),
       ],
     );
   }
