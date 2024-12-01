@@ -10,4 +10,13 @@ class AppTextStyle {
   static TextStyle hintTextfield = GoogleFonts.aBeeZee(
     fontSize: 17,
   );
+
+  static TextStyle titleNewsCard = GoogleFonts.abhayaLibre(
+    fontSize: 19,
+    fontWeight: FontWeight.w300,
+  );
+
+  static TextStyle descriptionNewsCard = GoogleFonts.abhayaLibre(
+    fontSize: 17,
+  );
 }
