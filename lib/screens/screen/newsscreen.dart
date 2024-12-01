@@ -7,6 +7,7 @@ import 'package:news_app/screens/widget/news_card_list.dart';
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
   static const String id = 'NewsScreen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,15 @@ class NewsScreen extends StatelessWidget {
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
-        child: NewsCardList(),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: CatograyCardList()),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 10),
+            ),
+            NewsCardList(),
+          ],
+        ),
       ),
     );
   }

@@ -6,23 +6,12 @@ class NewsCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-        NewsCard(),
-      ],
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return NewsCard();
+        },
+      ),
     );
   }
 }
