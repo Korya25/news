@@ -26,7 +26,7 @@ class CatogerayCard extends StatelessWidget {
           child: Center(
               child: Text(
             title,
-            style: AppTextStyle.heading,
+            style: AppTextStyle.catogarytitle,
           )),
         ),
       ),

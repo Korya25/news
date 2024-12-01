@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:news_app/cuibt/theme_cuibt/theme_cuibt.dart';
 import 'package:news_app/screens/screen/favoraties_screen.dart';
 import 'package:news_app/screens/widget/search_screen.dart';
 
@@ -9,8 +11,8 @@ class CustomAppBar extends StatelessWidget {
   // theme varible
   final String title;
   final TextStyle titleTextStyle;
-  final Color colortext = Colors.white;
-  final Color colorIcons = Colors.white;
+  //final Color colortext = Colors.white;
+  //final Color colorIcons = Colors.white;
   final double sizeIcon = 25;
   @override
   Widget build(BuildContext context) {
@@ -18,9 +20,7 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         // Theme Icon Button
-        IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.dark_mode, color: colorIcons, size: sizeIcon)),
+        ThemeToggellButton(sizeIcon: sizeIcon),
         const Spacer(flex: 4),
 
         // App Bar Text Icon Button
@@ -35,17 +35,39 @@ class CustomAppBar extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, TextFeildSearch.id);
             },
-            icon: Icon(FontAwesomeIcons.searchengin,
-                color: colorIcons, size: sizeIcon)),
+            icon: Icon(FontAwesomeIcons.searchengin, size: sizeIcon)),
 
         // Favoratie Icon Button
         IconButton(
             onPressed: () {
               Navigator.pushNamed(context, FavoratieScreen.id);
             },
-            icon: Icon(FontAwesomeIcons.heart,
-                color: colorIcons, size: sizeIcon)),
+            icon: Icon(FontAwesomeIcons.heart, size: sizeIcon)),
       ],
+    );
+  }
+}
+
+class ThemeToggellButton extends StatelessWidget {
+  const ThemeToggellButton({
+    super.key,
+    required this.sizeIcon,
+  });
+
+  final double sizeIcon;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        return IconButton(
+            onPressed: () {
+              context.read<ThemeCubit>().toggleTheme();
+            },
+            icon: Icon(
+                state == ThemeState.dark ? Icons.light_mode : Icons.dark_mode,
+                size: sizeIcon));
+      },
     );
   }
 }

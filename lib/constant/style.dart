@@ -19,4 +19,7 @@ class AppTextStyle {
   static TextStyle descriptionNewsCard = GoogleFonts.abhayaLibre(
     fontSize: 17,
   );
+
+  static TextStyle catogarytitle =
+      GoogleFonts.merriweather(fontSize: 20, fontWeight: FontWeight.bold);
 }
