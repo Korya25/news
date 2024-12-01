@@ -8,8 +8,7 @@ import 'package:news_app/screens/screen/newsscreen.dart';
 import 'package:news_app/screens/widget/search_screen.dart';
 
 void main() async {
-  await Hive.initFlutter();
-  await Hive.openBox('favorite');
+  await HiveServices();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -18,6 +17,11 @@ void main() async {
       child: const MyApp(),
     ),
   );
+}
+
+Future<void> HiveServices() async {
+  await Hive.initFlutter();
+  await Hive.openBox('favorite');
 }
 
 class MyApp extends StatelessWidget {

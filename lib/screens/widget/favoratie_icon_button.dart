@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FavoraiteIconButton extends StatelessWidget {
   const FavoraiteIconButton({
     super.key,
+    required this.isFavorrtie,
+    required this.onpressed,
   });
+  final bool isFavorrtie;
+  final Function() onpressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
-      icon: const Icon(
-        FontAwesomeIcons.heart,
+      onPressed: onpressed,
+      icon: Icon(
+        isFavorrtie ? Icons.favorite : Icons.favorite_border,
+        color: isFavorrtie ? Colors.red : null,
         size: 27,
       ),
     );

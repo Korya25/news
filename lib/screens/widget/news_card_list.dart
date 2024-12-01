@@ -9,7 +9,10 @@ class NewsCardList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
-          return const NewsCard();
+          return NewsCard(
+            index: index,
+            itemFavortie: 'ko',
+          );
         },
       ),
     );
