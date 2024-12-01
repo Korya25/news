@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:news_app/constant/style.dart';
+import 'package:news_app/screens/screen/article_detail_screen.dart';
 import 'package:news_app/screens/widget/favoratie_icon_button.dart';
 
 class NewsCard extends StatelessWidget {
@@ -13,7 +13,9 @@ class NewsCard extends StatelessWidget {
       child: Stack(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ArticleDetailScreen.id);
+            },
             child: Column(
               children: [
                 ClipRRect(

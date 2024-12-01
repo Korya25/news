@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/screens/screen/article_detail_screen.dart';
 import 'package:news_app/screens/screen/favoraties_screen.dart';
 import 'package:news_app/screens/screen/newsscreen.dart';
 import 'package:news_app/screens/widget/search_screen.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         NewsScreen.id: (context) => const NewsScreen(),
         TextFeildSearch.id: (context) => const TextFeildSearch(),
         FavoratieScreen.id: (context) => const FavoratieScreen(),
+        ArticleDetailScreen.id: (context) => const ArticleDetailScreen(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
