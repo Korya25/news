@@ -11,10 +11,10 @@ class Articlemodel {
       required this.description});
   factory Articlemodel.form(json) {
     return Articlemodel(
-      imagepath: json['urlToImage'],
-      title: json['title'],
-      description: json['description'],
-      content: json['content'],
+      imagepath: json['urlToImage'] ?? '',
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
+      content: json['content'] ?? '',
     );
   }
 }
