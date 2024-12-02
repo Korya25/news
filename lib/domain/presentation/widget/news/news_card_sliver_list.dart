@@ -14,13 +14,17 @@ class NewsCardList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
-          return NewsCard(
-            index: index,
-            articlemodel: articles[index],
-          );
+          return _buildNewsCard(articles[index], index);
         },
         childCount: articles.length,
       ),
+    );
+  }
+
+  NewsCard _buildNewsCard(Articlemodel articlemodel, int index) {
+    return NewsCard(
+      index: index,
+      articlemodel: articlemodel,
     );
   }
 }
