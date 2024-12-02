@@ -40,7 +40,7 @@ class CustomAppBar extends StatelessWidget {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return FavoratieScreen();
+                  return const FavoratieScreen();
                 },
               ));
             },
