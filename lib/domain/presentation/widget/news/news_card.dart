@@ -1,11 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:news_app/constant/style.dart';
 import 'package:news_app/data/source/local/favorite_hive_services.dart';
 import 'package:news_app/data/models/articlemodel.dart';
 import 'package:news_app/domain/presentation/screen/news/article_detail_screen.dart';
-import 'package:news_app/domain/presentation/widget/favorite/favoratie_icon_button.dart';
+import 'package:news_app/domain/presentation/widget/news/build_ews_card_content.dart';
+import 'package:news_app/domain/presentation/widget/news/widgets/build_favortieIcon_button.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({
@@ -27,66 +26,27 @@ class NewsCard extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return ArticleDetailScreen(
-                        articlemodel: articlemodel,
-                        index: index,
-                        itemFavortie: articlemodel,
-                      );
-                    },
-                  ));
+                  navigateToDetailScreen(context);
                 },
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 150,
-                      width: 150,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: CachedNetworkImage(
-                          imageUrl: articlemodel.imagepath,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => const Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      articlemodel.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.titleNewsCard,
-                    ),
-                    const SizedBox(
-                      height: 0.5,
-                    ),
-                    Text(
-                      articlemodel.description,
-                      maxLines: 2,
-                      overflow: TextOverflow.fade,
-                      style: AppTextStyle.descriptionNewsCard,
-                    ),
-                  ],
-                ),
+                child: BuildNewsCardContent(articlemodel: articlemodel),
               ),
-              FavoraiteIconButton(
-                isFavorrtie: isFavorrtie,
-                onpressed: () {
-                  if (isFavorrtie) {
-                    FavoriteHiveServices.removeFavortie(index);
-                  } else {
-                    FavoriteHiveServices.addFavorite(index, 'korya');
-                  }
-                },
-              ),
+              BuildFavortieIconButton(isFavorrtie: isFavorrtie, index: index),
             ],
           ),
         );
       },
     );
+  }
+
+  void navigateToDetailScreen(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return ArticleDetailScreen(
+          articlemodel: articlemodel,
+          index: index,
+          itemFavortie: articlemodel,
+        );
+      },
+    ));
   }
 }
