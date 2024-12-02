@@ -9,20 +9,25 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // App Bar
       appBar: AppBar(
         title: const CustomNewsScreenAppBar(
           titlepartone: 'News',
           titleparttwo: 'Cloud',
         ),
       ),
+
       body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: CustomScrollView(
           slivers: [
+            // Category Card List
             SliverToBoxAdapter(child: CatograyCardList()),
+            // Space between elements
             SliverToBoxAdapter(
               child: SizedBox(height: 10),
             ),
+            // Future Builder for News
             FutureBuilderNews(),
           ],
         ),

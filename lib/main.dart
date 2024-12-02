@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/data/source/local/hive_main_method.dart';
 import 'package:news_app/domain/cuibt/theme_cuibt/theme_cuibt.dart';
-import 'package:news_app/domain/presentation/screen/news/newsscreen.dart';
+import 'package:news_app/domain/presentation/screen/news/news_screen.dart';
 
 void main() async {
   await HiveMainMethod().hiveServices();

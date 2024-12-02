@@ -24,18 +24,18 @@ class FavoratieScreen extends StatelessWidget {
       valueListenable: FavoriteHiveServices.box.listenable(),
       builder: (context, box, _) {
         final favoriteItems = FavoriteHiveServices.getFavorite();
-
         if (favoriteItems.isEmpty) {
           return _buildEmptyFavorites();
         }
-
         return ListView.builder(
           itemCount: favoriteItems.length,
           itemBuilder: (context, index) {
+            final article = favoriteItems[index];
             return FavoriteListItem(
               onPressed: () {
                 FavoriteHiveServices.removeFavortie(index);
               },
+              item: article, // عرض العنوان بدلاً من نص ثابت
             );
           },
         );

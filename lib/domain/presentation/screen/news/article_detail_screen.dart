@@ -57,8 +57,7 @@ class ArticleDetailScreen extends StatelessWidget {
                           if (isFavorrtie) {
                             FavoriteHiveServices.removeFavortie(index);
                           } else {
-                            FavoriteHiveServices.addFavorite(
-                                index, itemFavortie.toString());
+                            FavoriteHiveServices.addFavorite(index, 'korya');
                           }
                         },
                       ),

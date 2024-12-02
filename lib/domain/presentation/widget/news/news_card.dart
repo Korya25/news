@@ -8,7 +8,11 @@ import 'package:news_app/domain/presentation/screen/news/article_detail_screen.d
 import 'package:news_app/domain/presentation/widget/favorite/favoratie_icon_button.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard({super.key, required this.index, required this.articlemodel});
+  const NewsCard({
+    super.key,
+    required this.index,
+    required this.articlemodel,
+  });
   final Articlemodel articlemodel;
   final int index;
   @override
@@ -75,8 +79,7 @@ class NewsCard extends StatelessWidget {
                   if (isFavorrtie) {
                     FavoriteHiveServices.removeFavortie(index);
                   } else {
-                    FavoriteHiveServices.addFavorite(
-                        index, articlemodel.toString());
+                    FavoriteHiveServices.addFavorite(index, 'korya');
                   }
                 },
               ),

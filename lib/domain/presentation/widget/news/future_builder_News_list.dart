@@ -13,25 +13,36 @@ class FutureBuilderNews extends StatelessWidget {
       future:
           NewsApiServices(Dio()).fetchArticles(catogray: catogray ?? 'general'),
       builder: (context, snapshot) {
+        // chack ConnectionState
+
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const SliverToBoxAdapter(
             child: Center(
               child: CircularProgressIndicator(),
             ),
           );
-        } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+        }
+        // Has Data
+
+        else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
           // If data is available
           return NewsCardList(
             articles: snapshot.data!,
           );
-        } else if (snapshot.hasError) {
+        }
+        // Has Error
+
+        else if (snapshot.hasError) {
           // If there is an error fetching data
           return const SliverToBoxAdapter(
             child: Center(
               child: Text("Error: Failed to load data"),
             ),
           );
-        } else {
+        }
+
+        // No articles found
+        else {
           // If no data available
           return const SliverToBoxAdapter(
             child: Center(
