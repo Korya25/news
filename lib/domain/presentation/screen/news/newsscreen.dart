@@ -6,7 +6,6 @@ import 'package:news_app/domain/presentation/widget/news/future_builder_News_lis
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
-  static const String id = 'NewsScreen';
 
   @override
   Widget build(BuildContext context) {

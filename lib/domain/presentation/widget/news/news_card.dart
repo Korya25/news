@@ -14,7 +14,7 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: FavoriteServices.box.listenable(),
+      valueListenable: FavoriteHiveServices.box.listenable(),
       builder: (context, box, _) {
         final isFavorrtie = box.containsKey(index);
         return Padding(
@@ -73,9 +73,9 @@ class NewsCard extends StatelessWidget {
                 isFavorrtie: isFavorrtie,
                 onpressed: () {
                   if (isFavorrtie) {
-                    FavoriteServices.removeFavortie(index);
+                    FavoriteHiveServices.removeFavortie(index);
                   } else {
-                    FavoriteServices.addFavorite(
+                    FavoriteHiveServices.addFavorite(
                         index, articlemodel.toString());
                   }
                 },

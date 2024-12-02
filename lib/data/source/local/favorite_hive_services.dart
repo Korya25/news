@@ -1,7 +1,8 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:news_app/constant/keyword.dart';
 
-class FavoriteServices {
-  static Box get box => Hive.box('favorite');
+class FavoriteHiveServices {
+  static Box get box => Hive.box(kFavorite);
 
 // Put in Box
   static void addFavorite(int index, String item) {

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:news_app/data/source/local/hive_methodes.dart';
+import 'package:news_app/data/source/local/hive_main_method.dart';
 import 'package:news_app/domain/cuibt/theme_cuibt/theme_cuibt.dart';
 import 'package:news_app/domain/presentation/screen/news/newsscreen.dart';
-import 'package:news_app/domain/presentation/widget/search_screen.dart';
 
 void main() async {
-  await HiveMethodes().hiveServices();
+  // Hive Method
+  await HiveMainMethod().hiveServices();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -28,14 +27,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(),
-          darkTheme: ThemeData.dark(),
+          darkTheme: ThemeData.light(),
           themeMode:
-              state == ThemeState.dark ? ThemeMode.dark : ThemeMode.light,
-          initialRoute: NewsScreen.id,
-          routes: {
-            NewsScreen.id: (_) => const NewsScreen(),
-            TextFeildSearch.id: (_) => const TextFeildSearch(),
-          },
+              state == ThemeState.light ? ThemeMode.light : ThemeMode.dark,
+          home: const NewsScreen(),
         );
       },
     );

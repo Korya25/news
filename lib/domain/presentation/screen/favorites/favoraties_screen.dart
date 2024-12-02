@@ -6,7 +6,6 @@ import 'package:news_app/domain/presentation/widget/favorite/favortuie_list_item
 
 class FavoratieScreen extends StatelessWidget {
   const FavoratieScreen({super.key});
-  static const String id = 'FavoratieScreen';
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +21,9 @@ class FavoratieScreen extends StatelessWidget {
   // Method to build the favorites list with ValueListenableBuilder
   Widget _buildFavoritesList() {
     return ValueListenableBuilder(
-      valueListenable: FavoriteServices.box.listenable(),
+      valueListenable: FavoriteHiveServices.box.listenable(),
       builder: (context, box, _) {
-        final favoriteItems = FavoriteServices.getFavorite();
+        final favoriteItems = FavoriteHiveServices.getFavorite();
 
         if (favoriteItems.isEmpty) {
           return _buildEmptyFavorites();
@@ -35,7 +34,7 @@ class FavoratieScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             return FavoriteListItem(
               onPressed: () {
-                FavoriteServices.removeFavortie(index);
+                FavoriteHiveServices.removeFavortie(index);
               },
             );
           },

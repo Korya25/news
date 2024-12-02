@@ -1,0 +1,1 @@
+const String kFavorite = 'favorite';

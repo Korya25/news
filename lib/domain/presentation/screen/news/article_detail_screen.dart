@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/data/source/local/favorite_hive_services.dart';
 import 'package:news_app/data/models/articlemodel.dart';
+import 'package:news_app/data/source/local/favorite_hive_services.dart';
 import 'package:news_app/domain/presentation/widget/favorite/favoratie_icon_button.dart';
 import 'package:news_app/domain/presentation/widget/other/sparete_news_datail_screen.dart';
 
@@ -26,7 +26,7 @@ class ArticleDetailScreen extends StatelessWidget {
         ),
       ),
       body: ValueListenableBuilder(
-        valueListenable: FavoriteServices.box.listenable(),
+        valueListenable: FavoriteHiveServices.box.listenable(),
         builder: (context, box, _) {
           final isFavorrtie = box.containsKey(index);
           return Padding(
@@ -55,9 +55,9 @@ class ArticleDetailScreen extends StatelessWidget {
                         isFavorrtie: isFavorrtie,
                         onpressed: () {
                           if (isFavorrtie) {
-                            FavoriteServices.removeFavortie(index);
+                            FavoriteHiveServices.removeFavortie(index);
                           } else {
-                            FavoriteServices.addFavorite(
+                            FavoriteHiveServices.addFavorite(
                                 index, itemFavortie.toString());
                           }
                         },
@@ -91,6 +91,3 @@ class ArticleDetailScreen extends StatelessWidget {
     );
   }
 }
-/*
- 
-*/
