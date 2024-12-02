@@ -5,12 +5,13 @@ import 'package:news_app/data/remote/news_api_services.dart';
 import 'package:news_app/screens/widget/news_card_sliver_list.dart';
 
 class FutureBuilderNews extends StatelessWidget {
-  const FutureBuilderNews({super.key});
-
+  const FutureBuilderNews({super.key, this.catogray});
+  final String? catogray;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Articlemodel>>(
-      future: NewsApiServices(Dio()).fetchArticles(catogray: 'general'),
+      future:
+          NewsApiServices(Dio()).fetchArticles(catogray: catogray ?? 'general'),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const SliverToBoxAdapter(

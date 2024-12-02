@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constant/style.dart';
+import 'package:news_app/screens/widget/custom_app_bar.dart';
+import 'package:news_app/screens/widget/future_builder_News_list.dart';
 
 class CatogerayCard extends StatelessWidget {
   const CatogerayCard(
@@ -8,14 +10,20 @@ class CatogerayCard extends StatelessWidget {
   final String title;
 
   // On Pressed Gester Director
-  void onTap() {}
+
   @override
   // Build UI
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: GestureDetector(
-        onTap: onTap,
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return CatograycardNews(title: title);
+            },
+          ));
+        },
         child: Container(
           width: 180,
           decoration: BoxDecoration(
@@ -29,6 +37,31 @@ class CatogerayCard extends StatelessWidget {
             style: AppTextStyle.catogarytitle,
           )),
         ),
+      ),
+    );
+  }
+}
+
+class CatograycardNews extends StatelessWidget {
+  const CatograycardNews({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: CustomAppBar(title: title, titleTextStyle: AppTextStyle.heading),
+      ),
+      body: CustomScrollView(
+        slivers: [
+          FutureBuilderNews(
+            catogray: title,
+          ),
+        ],
       ),
     );
   }
