@@ -37,7 +37,6 @@ class FavoratieScreen extends StatelessWidget {
               onPressed: () {
                 FavoriteServices.removeFavortie(index);
               },
-              item: favoriteItems[index],
             );
           },
         );

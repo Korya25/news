@@ -7,14 +7,9 @@ import 'package:news_app/screens/screen/article_detail_screen.dart';
 import 'package:news_app/screens/widget/favoratie_icon_button.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard(
-      {super.key,
-      required this.index,
-      required this.itemFavortie,
-      required this.articlemodel});
+  const NewsCard({super.key, required this.index, required this.articlemodel});
   final Articlemodel articlemodel;
   final int index;
-  final String itemFavortie;
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -32,7 +27,7 @@ class NewsCard extends StatelessWidget {
                       return ArticleDetailScreen(
                         articlemodel: articlemodel,
                         index: index,
-                        itemFavortie: itemFavortie,
+                        itemFavortie: articlemodel,
                       );
                     },
                   ));
@@ -70,7 +65,8 @@ class NewsCard extends StatelessWidget {
                   if (isFavorrtie) {
                     FavoriteServices.removeFavortie(index);
                   } else {
-                    FavoriteServices.addFavorite(index, itemFavortie);
+                    FavoriteServices.addFavorite(
+                        index, articlemodel.toString());
                   }
                 },
               ),

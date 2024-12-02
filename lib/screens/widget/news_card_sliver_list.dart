@@ -16,7 +16,6 @@ class NewsCardList extends StatelessWidget {
         (BuildContext context, int index) {
           return NewsCard(
             index: index,
-            itemFavortie: 'ko',
             articlemodel: articles[index],
           );
         },

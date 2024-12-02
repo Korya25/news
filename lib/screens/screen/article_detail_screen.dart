@@ -4,6 +4,7 @@ import 'package:news_app/constant/style.dart';
 import 'package:news_app/data/local/Hive/favorite_hive_services.dart';
 import 'package:news_app/data/models/articlemodel.dart';
 import 'package:news_app/screens/widget/favoratie_icon_button.dart';
+import 'package:news_app/screens/widget/sparete_news_datail_screen.dart';
 
 class ArticleDetailScreen extends StatelessWidget {
   const ArticleDetailScreen(
@@ -14,7 +15,7 @@ class ArticleDetailScreen extends StatelessWidget {
   final Articlemodel articlemodel;
   final int index;
 
-  final String itemFavortie;
+  final Articlemodel itemFavortie;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,44 +30,58 @@ class ArticleDetailScreen extends StatelessWidget {
         builder: (context, box, _) {
           final isFavorrtie = box.containsKey(index);
           return Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Stack(
+            padding: const EdgeInsets.all(20),
+            child: Column(
               children: [
-                Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image(
-                        image: NetworkImage(articlemodel.imagepath),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Text(
-                      articlemodel.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.titleNewsCard,
-                    ),
-                    const SizedBox(
-                      height: 0.5,
-                    ),
-                    Text(
-                      articlemodel.description,
-                      maxLines: 2,
-                      overflow: TextOverflow.fade,
-                      style: AppTextStyle.descriptionNewsCard,
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Text(
+                    articlemodel.title,
+                    style: AppTextStyle.titleNewsCard,
+                  ),
                 ),
-                FavoraiteIconButton(
-                  isFavorrtie: isFavorrtie,
-                  onpressed: () {
-                    if (isFavorrtie) {
-                      FavoriteServices.removeFavortie(index);
-                    } else {
-                      FavoriteServices.addFavorite(index, itemFavortie);
-                    }
-                  },
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image(
+                          image: NetworkImage(articlemodel.imagepath),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      FavoraiteIconButton(
+                        isFavorrtie: isFavorrtie,
+                        onpressed: () {
+                          if (isFavorrtie) {
+                            FavoriteServices.removeFavortie(index);
+                          } else {
+                            FavoriteServices.addFavorite(
+                                index, itemFavortie.toString());
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                    height: 50,
+                    child: SpareteDetailNews(
+                      title: 'Description',
+                    )),
+                Text(
+                  articlemodel.description,
+                  style: AppTextStyle.descriptionNewsCard,
+                ),
+                const SizedBox(
+                    height: 50,
+                    child: SpareteDetailNews(
+                      title: 'Content',
+                    )),
+                Text(
+                  articlemodel.content,
+                  style: AppTextStyle.descriptionNewsCard,
                 ),
               ],
             ),
@@ -76,3 +91,6 @@ class ArticleDetailScreen extends StatelessWidget {
     );
   }
 }
+/*
+ 
+*/
