@@ -28,7 +28,7 @@ class CustomNewsScreenAppBar extends StatelessWidget {
         // Theme Icon Button
 
         const ThemeToggleButton(),
-        const Spacer(flex: 4),
+        const Spacer(flex: 1),
 
         // App Bar Text Icon Button
 

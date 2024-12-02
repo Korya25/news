@@ -4,46 +4,31 @@ import 'package:news_app/domain/presentation/widget/catogray/catogeray_card.dart
 class CatograyCardList extends StatelessWidget {
   const CatograyCardList({super.key});
 
+  // List of category data
+  final List<Map<String, String>> categories = const [
+    {'imagePath': 'assets/Ai.jpg', 'title': 'Ai'},
+    {'imagePath': 'assets/businessmen.jpg', 'title': 'Business'},
+    {'imagePath': 'assets/entertainment.jpg', 'title': 'Entertainment'},
+    {'imagePath': 'assets/health.jpg', 'title': 'Health'},
+    {'imagePath': 'assets/science.jpg', 'title': 'Science'},
+    {'imagePath': 'assets/sports.jpg', 'title': 'Sport'},
+    {'imagePath': 'assets/technology.jpg', 'title': 'Technology'},
+  ];
+
   @override
   Widget build(BuildContext context) {
-    const List<CatogerayCard> catogerayCardList = [
-      CatogerayCard(
-        imagePath: 'assets/Ai.jpg',
-        title: 'Ai',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/businessmen.jpg',
-        title: 'Business',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/entertainment.jpg',
-        title: 'Entertainment',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/health.jpg',
-        title: 'Health',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/science.jpg',
-        title: 'Science',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/sports.jpg',
-        title: 'Sport',
-      ),
-      CatogerayCard(
-        imagePath: 'assets/technology.jpg',
-        title: 'Technology',
-      ),
-    ];
     return SizedBox(
-        height: 100,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: catogerayCardList.length,
-          itemBuilder: (context, index) {
-            return catogerayCardList[index];
-          },
-        ));
+      height: 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          return CatogerayCard(
+            imagePath: categories[index]['imagePath']!,
+            title: categories[index]['title']!,
+          );
+        },
+      ),
+    );
   }
 }
