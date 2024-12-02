@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/data/models/articlemodel.dart';
-import 'package:news_app/data/remote/news_api_services.dart';
-import 'package:news_app/screens/widget/news_card_sliver_list.dart';
+import 'package:news_app/data/source/remote/news_api_services.dart';
+import 'package:news_app/domain/presentation/widget/news/news_card_sliver_list.dart';
 
 class FutureBuilderNews extends StatelessWidget {
   const FutureBuilderNews({super.key, this.catogray});

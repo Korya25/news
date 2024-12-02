@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:news_app/data/local/cuibt/theme_cuibt/theme_cuibt.dart';
-import 'package:news_app/screens/screen/newsscreen.dart';
-import 'package:news_app/screens/widget/search_screen.dart';
+import 'package:news_app/data/source/local/hive_methodes.dart';
+import 'package:news_app/domain/cuibt/theme_cuibt/theme_cuibt.dart';
+import 'package:news_app/domain/presentation/screen/news/newsscreen.dart';
+import 'package:news_app/domain/presentation/widget/search_screen.dart';
 
 void main() async {
-  await hiveServices();
+  await HiveMethodes().hiveServices();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -15,11 +16,6 @@ void main() async {
       child: const MyApp(),
     ),
   );
-}
-
-Future<void> hiveServices() async {
-  await Hive.initFlutter();
-  await Hive.openBox('favorite');
 }
 
 class MyApp extends StatelessWidget {

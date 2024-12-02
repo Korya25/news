@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/screens/widget/catogeray_card_list.dart';
-import 'package:news_app/screens/widget/custom_app_bar.dart';
-import 'package:news_app/screens/widget/future_builder_News_list.dart';
+import 'package:news_app/domain/presentation/widget/catogray/catogeray_card_list.dart';
+import 'package:news_app/domain/presentation/widget/appbar/custom_app_bar.dart';
+import 'package:news_app/domain/presentation/widget/news/future_builder_News_list.dart';
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});

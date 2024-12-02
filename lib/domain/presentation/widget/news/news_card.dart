@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/data/local/Hive/favorite_hive_services.dart';
+import 'package:news_app/data/source/local/favorite_hive_services.dart';
 import 'package:news_app/data/models/articlemodel.dart';
-import 'package:news_app/screens/screen/article_detail_screen.dart';
-import 'package:news_app/screens/widget/favoratie_icon_button.dart';
+import 'package:news_app/domain/presentation/screen/news/article_detail_screen.dart';
+import 'package:news_app/domain/presentation/widget/favorite/favoratie_icon_button.dart';
 
 class NewsCard extends StatelessWidget {
   const NewsCard({super.key, required this.index, required this.articlemodel});
@@ -34,11 +35,20 @@ class NewsCard extends StatelessWidget {
                 },
                 child: Column(
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image(
-                        image: NetworkImage(articlemodel.imagepath),
-                        fit: BoxFit.fill,
+                    SizedBox(
+                      height: 150,
+                      width: 150,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: CachedNetworkImage(
+                          imageUrl: articlemodel.imagepath,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                     Text(

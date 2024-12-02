@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:news_app/screens/screen/favoraties_screen.dart';
-import 'package:news_app/screens/widget/search_screen.dart';
-import 'package:news_app/screens/widget/theme_toggele_button.dart';
+import 'package:news_app/domain/presentation/screen/favorites/favoraties_screen.dart';
+import 'package:news_app/domain/presentation/widget/search_screen.dart';
+import 'package:news_app/domain/presentation/widget/button/theme_toggele_button.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar(

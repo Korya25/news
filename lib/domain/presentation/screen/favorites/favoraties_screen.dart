@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/data/local/Hive/favorite_hive_services.dart';
-import 'package:news_app/screens/widget/favortuie_list_item.dart';
+import 'package:news_app/data/source/local/favorite_hive_services.dart';
+import 'package:news_app/domain/presentation/widget/favorite/favortuie_list_item.dart';
 
 class FavoratieScreen extends StatelessWidget {
   const FavoratieScreen({super.key});
