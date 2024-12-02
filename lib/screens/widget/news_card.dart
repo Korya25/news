@@ -27,7 +27,15 @@ class NewsCard extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, ArticleDetailScreen.id);
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return ArticleDetailScreen(
+                        articlemodel: articlemodel,
+                        index: index,
+                        itemFavortie: itemFavortie,
+                      );
+                    },
+                  ));
                 },
                 child: Column(
                   children: [

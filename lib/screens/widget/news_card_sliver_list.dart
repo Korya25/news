@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/data/models/articlemodel.dart';
-import 'package:news_app/screens/widget/Builde_News_api.dart';
+import 'package:news_app/screens/widget/news_card.dart';
 
 class NewsCardList extends StatelessWidget {
   const NewsCardList({
