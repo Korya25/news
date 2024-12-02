@@ -13,24 +13,44 @@ class FavoratieScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Favoraries', style: AppTextStyle.heading),
+        title: Text('Favorites', style: AppTextStyle.heading),
       ),
-      body: ValueListenableBuilder(
-        valueListenable: FavoriteServices.box.listenable(),
-        builder: (context, index, _) {
-          final favortieItem = FavoriteServices.getFavorite();
-          return ListView.builder(
-            itemCount: favortieItem.length,
-            itemBuilder: (context, index) {
-              return FavoriteListItem(
-                onPressed: () {
-                  FavoriteServices.removeFavortie(index);
-                },
-                item: favortieItem[index],
-              );
-            },
-          );
-        },
+      body: _buildFavoritesList(),
+    );
+  }
+
+  // Method to build the favorites list with ValueListenableBuilder
+  Widget _buildFavoritesList() {
+    return ValueListenableBuilder(
+      valueListenable: FavoriteServices.box.listenable(),
+      builder: (context, box, _) {
+        final favoriteItems = FavoriteServices.getFavorite();
+
+        if (favoriteItems.isEmpty) {
+          return _buildEmptyFavorites();
+        }
+
+        return ListView.builder(
+          itemCount: favoriteItems.length,
+          itemBuilder: (context, index) {
+            return FavoriteListItem(
+              onPressed: () {
+                FavoriteServices.removeFavortie(index);
+              },
+              item: favoriteItems[index],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  // Method to show a message when there are no favorites
+  Widget _buildEmptyFavorites() {
+    return const Center(
+      child: Text(
+        'No Favorites Yet!',
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
       ),
     );
   }

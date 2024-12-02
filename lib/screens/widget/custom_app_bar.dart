@@ -38,7 +38,11 @@ class CustomAppBar extends StatelessWidget {
         // Favoratie Icon Button
         IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, FavoratieScreen.id);
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return FavoratieScreen();
+                },
+              ));
             },
             icon: Icon(FontAwesomeIcons.heart, size: sizeIcon)),
       ],
