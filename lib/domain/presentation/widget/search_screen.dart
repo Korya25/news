@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/domain/presentation/widget/appbar/custom_app_bar.dart';
+import 'package:news_app/domain/presentation/widget/appbar/custom_news_screen_app_bar.dart';
 import 'package:news_app/domain/presentation/widget/news/future_builder_News_list.dart';
 
 class TextFeildSearch extends StatelessWidget {
   const TextFeildSearch({super.key});
-  static const String id = 'TextFeildSearch';
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +19,10 @@ class TextFeildSearch extends StatelessWidget {
                   builder: (context) {
                     return Scaffold(
                       appBar: AppBar(
-                        title: CustomAppBar(
-                            title: value, titleTextStyle: AppTextStyle.heading),
+                        title: const CustomNewsScreenAppBar(
+                          titlepartone: 'News',
+                          titleparttwo: 'Cloud',
+                        ),
                       ),
                       body: CustomScrollView(
                         slivers: [

@@ -5,7 +5,6 @@ import 'package:news_app/domain/cuibt/theme_cuibt/theme_cuibt.dart';
 import 'package:news_app/domain/presentation/screen/news/newsscreen.dart';
 
 void main() async {
-  // Hive Method
   await HiveMainMethod().hiveServices();
   runApp(
     MultiBlocProvider(
@@ -26,10 +25,13 @@ class MyApp extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          // Themes
           theme: ThemeData.dark(),
           darkTheme: ThemeData.light(),
           themeMode:
               state == ThemeState.light ? ThemeMode.light : ThemeMode.dark,
+
+          // Home
           home: const NewsScreen(),
         );
       },

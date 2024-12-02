@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constant/style.dart';
-import 'package:news_app/domain/presentation/widget/appbar/custom_app_bar.dart';
+import 'package:news_app/domain/presentation/widget/appbar/custom_news_screen_app_bar.dart';
 import 'package:news_app/domain/presentation/widget/news/future_builder_News_list.dart';
 
 class CatogerayCard extends StatelessWidget {
@@ -54,7 +54,10 @@ class CatograycardNews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CustomAppBar(title: title, titleTextStyle: AppTextStyle.heading),
+        title: CustomNewsScreenAppBar(
+          titlepartone: title,
+          titleparttwo: '',
+        ),
       ),
       body: CustomScrollView(
         slivers: [
